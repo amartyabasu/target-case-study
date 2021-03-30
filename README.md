@@ -32,7 +32,7 @@ This functionality can also accept a user defined regular expression and return 
 
 ### Index search
 
-This search mechanism precomputes the inverted document frequency along with the term frequency. These pre-computations are held in-memory after the first time its created and then subsequent searches are looked up in it. 
+This search mechanism precomputes the inverted document map which also contains the term frequency. These pre-computations are held in-memory after the first time its created and then subsequent searches are looked up in it. 
 
 ## Running the App
 
@@ -75,11 +75,11 @@ The three different approaches were stress tested with 2 million random words. T
 * regex_search performance: 4704.5470226 s
 * index_search performance: 5.030461999999716 s
 
-The indexed search beats the other searches because of the quick lookup from the dictionary that maps words to the documents containing it.
+The indexed search beats the other searches because of the quick lookup from the dictionary that map words to the list of documents containing it.
 
 ### Unit Test
 
-The test suite for the project can run by running the following command:
+The test suite for the project can be run by executing the following command:
 ```
 python3 -m unittest
 ```
