@@ -10,18 +10,19 @@ if __name__ == '__main__':
 
     s = Search()
 
+    print("-------Starting performance test-------")
     start = timer()
     for _ in range(2000000):
         word = random.choice(word_list)
         s.string_search(word)
     end = timer()
     time_diff = (end - start)
-    print("string_search performance:", time_diff, "s")
+    print("\nstring_search performance:", time_diff, "s")
 
     start = timer()
     for _ in range(2000000):
         word = random.choice(word_list)
-        s.string_search(word)
+        s.regex_search(word)
     end = timer()
     time_diff = (end - start)
     print("regex_search performance:", time_diff, "s")
@@ -29,7 +30,7 @@ if __name__ == '__main__':
     start = timer()
     for _ in range(2000000):
         word = random.choice(word_list)
-        s.string_search(word)
+        s.index_search(word)
     end = timer()
     time_diff = (end - start)
     print("index_search performance:", time_diff, "s")

@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
     search_term = input("Enter the search term: ")
     search_type = input("Enter search type: \n \"1\" for String Search \n \"2\" Regex search \n \"3\" Indexed search "
-                        "\n \"4\" tf-idf search \n")
+                        "\n")
 
     if search_type == "1":
 
