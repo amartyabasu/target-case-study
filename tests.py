@@ -1,10 +1,5 @@
 import unittest
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from document_search.search import Search
-
-
+from search import Search
 
 class TestSearch(unittest.TestCase):
     def test_string_search(self):

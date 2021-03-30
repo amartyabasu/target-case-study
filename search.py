@@ -20,7 +20,7 @@ class Search:
 
         # List all subdirectories using os.listdir
         filenames = list()
-        basepath = '../sample_text'
+        basepath = 'sample_text'
         for entry in os.listdir(basepath):
 
             if os.path.isfile(os.path.join(basepath, entry)):
