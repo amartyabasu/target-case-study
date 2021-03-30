@@ -37,8 +37,9 @@ class Search:
         search_results = []
 
         for file_loc in fnames:
-            f = open(file_loc, "r")
+            f = open(file_loc, "r", encoding='utf-8')
             txt = f.read()
+            f.close()
             txt = txt.lower()
             query_hits = txt.count(query_string)
             if query_hits > 0:
@@ -61,8 +62,9 @@ class Search:
         imperfect_results = list()
 
         for file_loc in fnames:
-            f = open(file_loc, "r")
+            f = open(file_loc, "r",encoding='utf-8')
             txt = f.read()
+            f.close()
             search_regex = re.compile(r'\w*{0}\w*'.format(query_string), re.I)
             exact_regex = re.compile(r"\b{0}\b".format(query_string), re.I)
 
@@ -102,6 +104,7 @@ class Search:
         for file_loc in fnames:
             f = open(file_loc, "r",encoding='utf-8')
             txt = f.read()
+            f.close()
 
             # convert to lower case
             txt = txt.lower()
