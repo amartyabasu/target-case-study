@@ -75,6 +75,8 @@ The three different approaches were stress tested with 2 million random words. T
 * regex_search performance: 4704.5470226 s
 * index_search performance: 5.030461999999716 s
 
+The indexed search beats the other searches because of the quick lookup from the dictionary that maps words to the documents containing it.
+
 ### Unit Test
 
 The test suite for the project can run by running the following command:
