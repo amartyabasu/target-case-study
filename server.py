@@ -15,10 +15,11 @@ def string_search_handler(query_term):
 @search_api.route('/api/regexsearch', defaults={'query_term': 'france'})
 @search_api.route('/api/regexsearch/<query_term>')
 def regex_search_handler(query_term):
-    results = s.regex_search(query_term)
+    exact_results, imperfect_results = s.regex_search(query_term)
     return {
         'query_term': query_term,
-        'search_results': results
+        'top_search_results': exact_results,
+        'other_results': imperfect_results
     }, 200
 
 @search_api.route('/api/indexsearch', defaults={'query_term': 'france'})
