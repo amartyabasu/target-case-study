@@ -1,5 +1,5 @@
 from flask import Flask
-from document_search.search import Search
+from search import Search
 search_api= Flask('server')
 
 s = Search()

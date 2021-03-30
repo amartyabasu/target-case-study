@@ -1,4 +1,4 @@
-from document_search.search import Search
+from search import Search
 from timeit import default_timer as timer
 from nltk.corpus import words
 import nltk
