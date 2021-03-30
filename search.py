@@ -7,10 +7,12 @@ import pylru
 import numpy as np
 import ntpath
 from timeit import default_timer as timer
+import nltk
 
 
 class Search:
     def __init__(self):
+        nltk.download('stopwords')
         self.inverted_index = defaultdict(list)
         self.index_created = False
         self.cache_size = 100
