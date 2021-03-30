@@ -8,7 +8,7 @@
     - [Local execution](#local-execution)
     - [AWS Deployment](#aws-deployment)
 - [Performance Analysis](#performance-analysis)
-- [Unit Test](#unit-tests)
+- [Unit Test](#unit-test)
 - [Future Enhancements](#future-enhancements)
 
 ## Design Details
@@ -86,8 +86,8 @@ python3 -m unittest
 
 * For a real-time scenario it would help to store the inverted index in a persistent storage like a database like Postgres.
 * Large requests in the order of more than 5000 request per second can be catered by -
- 1. Allocating more RAM that could support a larger cache for frequently searched terms
- 2. Running separate thread to update the inverted index as an when new documents arrive in the datastore.
- 3. Compute the inverted index by running parallel spark jobs on data distributed across multiple nodes.
- 4. Probabilistically load the next set of documents based on current term to reduce subsequent search time.
- 5. Gauge network traffic to add and remove more CPUs on the fly to deal with spikes and ebbs. 
+    1. Allocating more RAM that could support a larger cache for frequently searched terms
+    2. Running separate thread to update the inverted index as an when new documents arrive in the datastore.
+    3. Compute the inverted index by running parallel spark jobs on data distributed across multiple nodes.
+    4. Probabilistically load the next set of documents based on current term to reduce subsequent search time.
+    5. Gauge network traffic to add and remove more CPUs on the fly to deal with spikes and ebbs. 
