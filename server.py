@@ -5,7 +5,7 @@ search_api= Flask('server')
 s = Search()
 @search_api.route('/api/stringsearch', defaults={'query_term': 'france'})
 @search_api.route('/api/stringsearch/<query_term>')
-def handle_requests(query_term):
+def string_search_handler(query_term):
     results = s.string_search(query_term)
     return {
         'query_term': query_term,
@@ -14,7 +14,7 @@ def handle_requests(query_term):
 
 @search_api.route('/api/regexsearch', defaults={'query_term': 'france'})
 @search_api.route('/api/regexsearch/<query_term>')
-def handle_requests(query_term):
+def regex_search_handler(query_term):
     results = s.regex_search(query_term)
     return {
         'query_term': query_term,
@@ -23,7 +23,7 @@ def handle_requests(query_term):
 
 @search_api.route('/api/indexsearch', defaults={'query_term': 'france'})
 @search_api.route('/api/indexsearch/<query_term>')
-def handle_requests(query_term):
+def index_search_handler(query_term):
     results = s.index_search(query_term)
     return {
         'query_term': query_term,
