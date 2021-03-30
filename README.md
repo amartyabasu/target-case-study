@@ -16,7 +16,7 @@
 This is an application to search a term across multiple documents. Three approaches are implemented to provide the search capability with variations to improve performance and enable meaningful word search. The searches ignore letter cases with the thought process that its not required for an e-commerce site's search functionality.
 
 The application services are accessible by rest enabled end-points for easy plug in to the UI client code.
-### String Search
+## String Search
 
 The most simplistic approach of all where every document is visited to find the number of occurrences. This search returns a result where the query term may be a substring of a larger word.  
 
@@ -24,7 +24,7 @@ This search is not optimal as every time a user does a search, all documents are
 
 A LRU cache is included as part of the implementation to speed up responses for frequently searched or recently used terms.
 
-### Regex Search
+## Regex Search
 
 This feature allows a user to retrieve documents with exact term matches along with other related matches. Currently only the count of the related match is returned as that is the expected behavior defined in the case study. But with simple tweaks even that can be displayed in the output.
 
@@ -84,10 +84,10 @@ python3 -m unittest
 
 ### Future enhancements
 
-* For a real-time scenario it would help to store the inverted index in a persistent storage like a database like Postgres.
-* Large requests in the order of more than 5000 request per second can be catered by -
+* For a real-time scenario it would help to store the inverted index in a persistent storage like database
+* Large requests in the order of more than 5000 requests per second can be catered by -
     1. Allocating more RAM that could support a larger cache for frequently searched terms
-    2. Running separate thread to update the inverted index as an when new documents arrive in the datastore.
-    3. Compute the inverted index by running parallel spark jobs on data distributed across multiple nodes.
-    4. Probabilistically load the next set of documents based on current term to reduce subsequent search time.
-    5. Gauge network traffic to add and remove more CPUs on the fly to deal with spikes and ebbs. 
+    2. Running separate thread to update the inverted index as an when new documents arrive in the datastore
+    3. Compute the inverted index by running parallel spark jobs on data distributed across multiple nodes
+    4. Probabilistically load the next set of documents based on current term to reduce subsequent search time
+    5. Gauge network traffic to add and remove more CPUs on the fly to deal with spikes and ebbs

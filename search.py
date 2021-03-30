@@ -38,6 +38,7 @@ class Search:
         fnames = self.get_dirfiles()
         search_results = []
 
+        # traversing files for the required query term
         for file_loc in fnames:
             f = open(file_loc, "r", encoding='utf-8')
             txt = f.read()
@@ -63,12 +64,14 @@ class Search:
         exact_results = list()
         imperfect_results = list()
 
+        search_regex = re.compile(r'\w*{0}\w*'.format(query_string), re.I)
+        exact_regex = re.compile(r"\b{0}\b".format(query_string), re.I)
+
+        # traversing files for the required query term
         for file_loc in fnames:
             f = open(file_loc, "r",encoding='utf-8')
             txt = f.read()
             f.close()
-            search_regex = re.compile(r'\w*{0}\w*'.format(query_string), re.I)
-            exact_regex = re.compile(r"\b{0}\b".format(query_string), re.I)
 
             query_hits = search_regex.findall(txt)
             exact_query_hits = list()
@@ -101,8 +104,7 @@ class Search:
         stop_words = stopwords.words('english')
         fnames = self.get_dirfiles()
 
-        # files_count
-
+        # traversing files for the required query term
         for file_loc in fnames:
             f = open(file_loc, "r",encoding='utf-8')
             txt = f.read()
@@ -166,7 +168,11 @@ if __name__ == '__main__':
         print("Time elapsed", time_diff,"s")
 
     elif search_type == "2":
+        start = timer()
         exact_results, imperfect_results = s.regex_search(search_term)
+        end = timer()
+        time_diff = (end - start)
+
         print("Search results\n")
         if len(exact_results) > 0 or len(imperfect_results) > 0:
             for result in exact_results:
@@ -177,6 +183,8 @@ if __name__ == '__main__':
                 print(result[0], " - ", result[1], "\n")
         else:
             print("No document found with search term")
+
+        print("Time elapsed", time_diff, "s")
 
     elif search_type == "3":
         start = timer()
